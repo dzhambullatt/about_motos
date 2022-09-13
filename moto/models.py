@@ -1,3 +1,17 @@
 from django.db import models
 
-# Create your models here.
+
+class Cats(models.Model):
+    name = models.CharField(max_length=150, verbose_name="Название")
+
+
+class Moto(models.Model):
+    title = models.CharField(max_length=250, verbose_name="Заголовок")
+    content = models.TextField(verbose_name="Контент")
+    is_published = models.BooleanField(blank=True)
+    time_create = models.DateTimeField()
+    time_update = models.DateTimeField()
+    photo = models.ImageField()
+    cats = models.ForeignKey(Cats, on_delete=models.CASCADE)
+
+
