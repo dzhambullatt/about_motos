@@ -11,7 +11,7 @@ class Moto(models.Model):
     is_published = models.BooleanField(blank=True)
     time_create = models.DateTimeField()
     time_update = models.DateTimeField()
-    photo = models.ImageField()
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фото")
     cats = models.ForeignKey(Cats, on_delete=models.CASCADE)
 
 
