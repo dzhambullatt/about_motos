@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 
 def news(request):
-    return HttpResponse('<p>hello world</p>')
+    return render(request, 'moto/index.html')
 
 
 def about(request):
