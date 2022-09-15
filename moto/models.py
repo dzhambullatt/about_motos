@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Cats(models.Model):
-    name = models.CharField(max_length=150, verbose_name="Название")
+    name = models.CharField(max_length=150, verbose_name="Название", db_index=True)
 
     def __str__(self):
         return self.name
