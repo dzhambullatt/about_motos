@@ -10,7 +10,7 @@ class MotoAdmin(admin.ModelAdmin):
 
 class CatsAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
-    list_display_links = ('id', 'title')
+    list_display_links = ('id', 'name')
 
 
 admin.site.register(Moto, MotoAdmin)
