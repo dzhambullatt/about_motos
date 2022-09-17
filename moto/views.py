@@ -15,5 +15,13 @@ def news(request):
     return render(request, 'moto/index.html', context)
 
 
-def about(request):
-    return HttpResponse('<h1>about page</h1>')
+def get_cats(request, cat_id):
+    mot = Moto.objects.filter(cats_id=cat_id)
+    cats = Cats.objects.get(pk=cat_id)
+    category = Cats.objects.all()
+    context = {
+        'mot': mot,
+        'category': category,
+        'cats': cats
+    }
+    return render(request, 'moto/cats.html', context)  #template name='moto/cats.html'
