@@ -44,7 +44,7 @@
         <div class="col-xl-2">
             <div class="list-group">
                 {% for i in cats %}
-                <a href="/cats_url/{{ i.pk }}" class="list-group-item list-group-item-action">{{ i.name }}</a>
+                <a href="{% url 'cats' i.pk %}" class="list-group-item list-group-item-action">{{ i.name }}</a>
                 {% endfor %}
             </div>
         </div>
@@ -56,7 +56,7 @@
                         {% for i in mot %}
                         <div class="card mb-3">
                             <div class="card-header">
-                                Категория: {{ i.cats }}
+                                Категория: <a href="{% url 'cats' i.cats.pk %}">{{ i.cats }}</a>
                             </div>
                             <div class="card-body">
                                 <div class="media">
