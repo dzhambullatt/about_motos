@@ -25,3 +25,7 @@ def get_cats(request, cat_id):
         'cats': cats
     }
     return render(request, 'moto/cats.html', context)  #template name='moto/cats.html'
+
+
+def about_page(request):
+    return render(request, 'moto/about.html')

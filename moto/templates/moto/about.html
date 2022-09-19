@@ -1,0 +1,28 @@
+{% extends "moto/base.html" %}
+
+{% block title %}
+About Page
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}
+
+{% block content %}
+<div class="card text-center">
+    <div class="card-header">
+        ИНФОРМАЦИЯ О САЙТЕ
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Сайт создан в качестве пет проекта</h5>
+        <p class="card-text">Сайт о нескольких классификациях мотоциклов Lorem Ipsum, dizgi ve baskı endüstrisinde
+            kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı
+            oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler
+            olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden
+            elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının
+            yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık
+            yazılımları ile popüler olmuştur.</p>
+        <a href="{% url 'home' %}" class="btn btn-primary">На Главную</a>
+    </div>
+</div>
+{% endblock %}
