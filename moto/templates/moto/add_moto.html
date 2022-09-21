@@ -1,0 +1,22 @@
+{% extends "moto/base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+
+{% block sidebar %}
+<div class="col-xl-2">
+    <div class="list-group">
+        {% for i in cats %}
+        <a href="{% url 'cats' i.pk %}" class="list-group-item list-group-item-action">{{ i.name }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h1>Добавить Мотоцикл</h1>
+{% endblock %}
+
