@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from .models import *
@@ -34,7 +34,11 @@ def about_page(request):
 
 def add_moto(request):
     if request.method == "POST":
-        pass
+        form = MotoForm(request.POST)
+        if form.is_valid():
+            #print(form.cleaned_data)
+            Moto.objects.create(**form.cleaned_data)
+            return redirect('home')
     else:
         form = MotoForm()
     return render(request, 'moto/add_moto.html', {'form': form})
