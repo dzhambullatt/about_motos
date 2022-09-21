@@ -29,3 +29,7 @@ def get_cats(request, cat_id):
 
 def about_page(request):
     return render(request, 'moto/about.html')
+
+
+def add_moto(request):
+    return render(request, 'moto/add_moto.html')
