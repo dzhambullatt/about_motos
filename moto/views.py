@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from .models import *
+from .forms import MotoForm
 
 
 def news(request):
@@ -32,4 +33,8 @@ def about_page(request):
 
 
 def add_moto(request):
-    return render(request, 'moto/add_moto.html')
+    if request.method == "POST":
+        pass
+    else:
+        form = MotoForm()
+    return render(request, 'moto/add_moto.html', {'form': form})
