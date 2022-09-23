@@ -1,7 +1,7 @@
 {% extends "moto/base.html" %}
 
 {% block title %}
-{{ title }}
+ Добавить запись
 {% endblock %}
 
 
@@ -21,9 +21,9 @@
 
 <form action="{% url 'add_moto' %}" method="post">
     {% csrf_token %}
-    {% comment %}
+
     {{ form.as_p }}
-    {% endcomment %}
+
 
     {% comment %}
     <div class="form-group">
@@ -44,6 +44,7 @@
     </div>
     {% endcomment %}
 
+    {% comment %}
     {% for field in form %}
     <div class="form-group">
         {{ field.label_tag }}
@@ -53,7 +54,7 @@
         </div>
     </div>
     {% endfor %}
-
+    {% endcomment %}
 
     <button type="submit" class="btn btn-primary btn-block">Добавить</button>
 </form>

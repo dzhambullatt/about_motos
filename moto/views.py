@@ -37,7 +37,7 @@ def add_moto(request):
         form = MotoForm(request.POST)
         if form.is_valid():
             moto = form.save()
-            return redirect(moto)
+            return redirect('home')
     else:
         form = MotoForm()
     return render(request, 'moto/add_moto.html', {'form': form})
