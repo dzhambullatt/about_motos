@@ -5,7 +5,12 @@ from .models import *
 class MotoForm(forms.ModelForm):
     class Meta:
         model = Moto
-        fields = '__all__'
+        fields = ['title', 'content', 'is_published', 'cats']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'content': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
+            'cats': forms.Select(attrs={'class': 'form-control'})
+        }
 
 
 
