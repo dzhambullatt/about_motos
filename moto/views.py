@@ -41,3 +41,7 @@ def add_moto(request):
     else:
         form = MotoForm()
     return render(request, 'moto/add_moto.html', {'form': form})
+
+
+def view_moto(request, moto_id):
+    moto_item = Moto.objects.get(pk=moto_id)
