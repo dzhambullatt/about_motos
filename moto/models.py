@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Cats(models.Model):
@@ -21,9 +22,14 @@ class Moto(models.Model):
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фото")
     cats = models.ForeignKey(Cats, on_delete=models.CASCADE, verbose_name="Категория")
 
+    def get_absolute_url(self):
+        return reverse('view_moto', kwargs={'moto_id': self.pk})
+
     def __str__(self):
         return self.title
 
     class Meta:
         verbose_name = "Мотоцикл"
         verbose_name_plural = "Мотоциклы"
+
+

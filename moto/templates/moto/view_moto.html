@@ -1,7 +1,7 @@
 {% extends "moto/base.html" %}
 
 {% block title %}
-    {{ title }}
+    {{ moto_item.title }}
 {% endblock %}
 
 
@@ -21,10 +21,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-9 col-md-12">
-                {% for i in mot %}
                 <div class="card mb-3">
                     <div class="card-header">
-                        Категория: <a href="{% url 'cats' i.cats.pk %}">{{ i.cats }}</a>
+                        Категория: <a href="{% url 'cats' moto_item.cats.pk %}">{{ moto_item.cats }}</a>
                     </div>
                     <div class="card-body">
                         <div class="media">
@@ -35,15 +34,13 @@
                                  alt="" width="350">
                             {% endif %}
                         </div>
-                        <h5 class="card-title">{{ i.title }}</h5>
-                        <p class="card-text">{{ i.content|truncatewords:55 }}</p>
-                        <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Читать</a>
+                        <h5 class="card-title">{{ moto_item.title }}</h5>
+                        <p class="card-text">{{ moto_item.content }}</p>
                     </div>
                     <div class="card-footer text-muted">
-                        {{ i.time_create }}
+                        {{ moto_item.time_create }}
                     </div>
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>

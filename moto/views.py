@@ -45,3 +45,4 @@ def add_moto(request):
 
 def view_moto(request, moto_id):
     moto_item = Moto.objects.get(pk=moto_id)
+    return render(request, 'moto/view_moto.html', {"moto_item": moto_item})
