@@ -1,8 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.views.generic import ListView
 
 from .models import *
 from .forms import MotoForm
+
+
+class HomeMoto(ListView):
+    model = Moto
+    template_name = 'moto/index.html'
 
 
 def news(request):
@@ -28,6 +34,11 @@ def get_cats(request, cat_id):
     return render(request, 'moto/cats.html', context)  #template name='moto/cats.html'
 
 
+def view_moto(request, moto_id):
+    moto_item = Moto.objects.get(pk=moto_id)
+    return render(request, 'moto/view_moto.html', {"moto_item": moto_item})
+
+
 def about_page(request):
     return render(request, 'moto/about.html')
 
@@ -43,6 +54,4 @@ def add_moto(request):
     return render(request, 'moto/add_moto.html', {'form': form})
 
 
-def view_moto(request, moto_id):
-    moto_item = Moto.objects.get(pk=moto_id)
-    return render(request, 'moto/view_moto.html', {"moto_item": moto_item})
+
