@@ -9,6 +9,7 @@ from .forms import MotoForm
 class HomeMoto(ListView):
     model = Moto
     template_name = 'moto/index.html'
+    context_object_name = 'moto'
 
 
 def news(request):
